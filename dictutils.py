@@ -212,6 +212,9 @@ class Generator (object):
 		if mode is None:
 			mode = ('name', 'phonetic')
 		count = 0
+		stripword = stardict.stripword
+		words = [ k for k in words ]
+		words.sort(key = lambda x: stripword(x))
 		for word in words:
 			pc.next()
 			data = dictionary[word]
@@ -463,13 +466,14 @@ class Generator (object):
 				fp.write(w + '\n')
 		return True
 
-	def mdict2eudic (self, mdx_src, outname):
+	def mdict2eudic (self, mdx_src, outname, skip = True):
 		import codecs
 		with codecs.open(mdx_src, encoding = 'utf-8') as srcfp:
 			fp = codecs.open(outname, 'w', encoding = 'utf-8')
 			word = None
 			part = []
 			count = 0
+			valid = 0
 			for line in srcfp:
 				line = line.strip('\r\n\t ')
 				if not line:
@@ -480,14 +484,23 @@ class Generator (object):
 				elif line != '</>':
 					part.append(line)
 				else:
-					text = ''.join(part)
-					if (not word[:1] == '-') and (not word[-1:] == '-'):
-						fp.write(word + '@' + text + '\r\n')
+					invalid = False
+					if skip:
+						for ch in word:
+							if ord(ch) >= 128:
+								invalid = True
+								break
+					if not invalid:
+						text = ''.join(part)
+						if (not word[:1] == '-') and (not word[-1:] == '-'):
+							fp.write(word + '@' + text + '\r\n')
+							valid += 1
 					word = None
 					part = []
 					count += 1
 					if count % 10000 == 0:
 						print('current count=%d'%count)
+		print('done valid=%d/%d'%(valid, count))
 		return True
 
 	def load_index (self, filename, encoding = 'utf-8', lower = False):
