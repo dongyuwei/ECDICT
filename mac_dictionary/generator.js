@@ -68,9 +68,9 @@ const buildExplanation = jsonObj => {
     .join("\n\t");
 
   const phonetic = jsonObj.phonetic
-    ? `<li><span class="syntax"><span d:pr="1">${
+    ? `<li><span class="syntax"><span d:pr="1">|${
         jsonObj.phonetic
-      }</span></span></li>`
+      }|</span></span></li>`
     : "";
   return `<ol class='explanation'>\n\t ${phonetic} \n\t${definitionsItems} ${translationsItems}\n\t</ol>`;
 };
