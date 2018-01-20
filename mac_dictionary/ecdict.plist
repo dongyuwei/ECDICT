@@ -5,13 +5,13 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleIdentifier</key>
-	<string>us.erlang.dictionary.Pinyin2English</string>
+	<string>us.erlang.dictionary.ecdict</string>
 	<key>CFBundleName</key>
-	<string>Pinyin2English</string>
+	<string>ecdict</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>DCSDictionaryCopyright</key>
-	<string>cedict https://cc-cedict.org/ https://github.com/dongyuwei</string>
+	<string>https://github.com/dongyuwei/ECDICT</string>
 	<key>DCSDictionaryManufacturerName</key>
 	<string>https://github.com/dongyuwei</string>
 </dict>
