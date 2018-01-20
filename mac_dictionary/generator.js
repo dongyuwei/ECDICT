@@ -38,7 +38,7 @@ const buildDictionary = entries => {
   fs.writeFileSync("./ecdict.xml", dictXML, "utf-8");
 };
 
-let id = 0; 
+let id = 0;
 const buildDictEntry = (word, jsonObj) => {
   const escapedWord = escapeHTML(word);
   const entry = `<d:entry id="ecdict_${id++}" d:title="${escapedWord}">
@@ -50,8 +50,12 @@ const buildDictEntry = (word, jsonObj) => {
 };
 
 const buildExplanation = jsonObj => {
-  const translations = jsonObj.translation.split("\\n");
-  const definitions = jsonObj.definition.split("\\nn");
+  const translations = jsonObj.translation
+    .split("\\n")
+    .filter(item => item !== "");
+  const definitions = jsonObj.definition
+    .split("\\nn")
+    .filter(item => item !== "");
   const definitionsItems = definitions
     .map(definition => {
       return `<li class="definition">${escapeHTML(definition)}</li>`;
@@ -62,8 +66,13 @@ const buildExplanation = jsonObj => {
       return `<li class="translation">${escapeHTML(translation)}</li>`;
     })
     .join("\n\t");
-  return `<ol class='explanation'>\n\t <li><span class="syntax"><span d:pr="1">${jsonObj.phonetic}</span></span></li> 
-    \n\t${definitionsItems} ${translationsItems}\n\t</ol>`;
+
+  const phonetic = jsonObj.phonetic
+    ? `<li><span class="syntax"><span d:pr="1">${
+        jsonObj.phonetic
+      }</span></span></li>`
+    : "";
+  return `<ol class='explanation'>\n\t ${phonetic} \n\t${definitionsItems} ${translationsItems}\n\t</ol>`;
 };
 
 const escapeHTML = str => {
