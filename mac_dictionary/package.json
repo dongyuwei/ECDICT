@@ -1,0 +1,36 @@
+{
+  "name": "ecdict",
+  "version": "1.0.0",
+  "description": "ecdict: english2chinese dictionary",
+  "main": "mac_dictionary/generator.js",
+  "engines": {
+    "node": ">= 9.4.0"
+  },
+  "scripts": {
+    "build:xml": "node --max-old-space-size=8192  generator.js",
+    "build:dict": "make && make install",
+    "build": "node generator.js && make && make install",
+    "format": "prettier-eslint '*.js' --write "    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dongyuwei/ECDICT.git"
+  },
+  "keywords": [
+    "dictionary",
+    "ecdict",
+    "english2chinese"
+  ],
+  "author": "dongyuwei",
+  "license": "Mozilla Public License",
+  "bugs": {
+    "url": "https://github.com/dongyuwei/ECDICT/issues"
+  },
+  "homepage": "https://github.com/dongyuwei/ECDICT#readme",
+  "dependencies": {
+    "csvtojson": "^1.1.9"
+  },
+  "devDependencies": {
+    "prettier-eslint-cli": "^4.7.0"
+  }
+}

@@ -1,0 +1,22 @@
+@charset "UTF-8";
+@namespace d url(http://www.apple.com/DTDs/DictionaryService-1.0.rng);
+
+h1 {
+	font-size: 150%;
+}
+
+.headword {
+	color: #c2d94c;
+}
+
+li {
+	padding-left: 10px;
+}
+
+li.definition {
+	padding-left: 5px;
+}
+
+.translation {
+	color: #5ccfe6;
+}

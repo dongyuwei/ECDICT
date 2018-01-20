@@ -1,0 +1,7 @@
+mac_dictionary/node_modules/
+mac_dictionary/ecdict.xml
+mac_dictionary/objects
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
