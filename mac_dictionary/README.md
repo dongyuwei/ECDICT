@@ -1,22 +1,6 @@
 # ecdict
 English-Chinese Dictionary for Mac Dictionary.app (dictionary comes from https://github.com/skywind3000/ECDICT)
 
-## Installing the dictionary
-1. Download ecdict.dictionary.zip from latest releases and unzip it
-2. Copy `ecdict.dictionary` to `~/Library/Dictionaries`
-3. Launch Dictionary.app
-4. In Dictionary > Preferences, scroll to the bottom of the list and check the *ecdict* dictionary to enable it
-5. Optional: drag the *ecdict* dictionary entry to change the order of dictionaries
-
----
-
-## Using the dictionary
-
-* Launch Dictionary and type the english word into the search field
-* Right-click on the english word and choose the _Look Up_ menu item  
-  (on a track pad you can also use a Three Finger Tap or Force Click)
-* Press Cmd+Ctrl+D whilst pointing the mouse cursor at the english word to display a popup
-
 ### Building
 
 1. Download `Additional_Tools_for_Xcode_9.dmg` from apple.com and copy `Dictionary Development Kit` to `/DevTools/Utilities/Dictionary Development Kit`
@@ -25,6 +9,14 @@ English-Chinese Dictionary for Mac Dictionary.app (dictionary comes from https:/
 4. Run `npm install`
 5. Run `npm run build` (this will build and install the dictionary)
 6. In Dictionary > Preferences, scroll to the bottom of the list and activate the *ecdict* dictionary (only required once)
+
+## Using the dictionary
+
+* Launch Dictionary and type the english word into the search field
+* Right-click on the english word and choose the _Look Up_ menu item  
+  (on a track pad you can also use a Three Finger Tap or Force Click)
+* Press Cmd+Ctrl+D whilst pointing the mouse cursor at the english word to display a popup
+
 
 ## Lisence 
 This project use `Mozilla Public License Version 2.0`
