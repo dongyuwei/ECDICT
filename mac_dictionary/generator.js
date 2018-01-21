@@ -96,12 +96,3 @@ const escapeHTML = str => {
     return "&" + escapeChars[m] + ";";
   });
 };
-
-const buildDictEntries = dict => {
-  let entries = [];
-  for (let pinyin in dict) {
-    const translations = dict[pinyin];
-    entries.push(buildDictEntry(pinyin, translations));
-  }
-  return entries.join("\n");
-};
